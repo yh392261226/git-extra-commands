@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Original source: https://github.com/mislav/dotfiles/blob/master/bin/git-branches-that-touch
 #
@@ -12,7 +12,7 @@
 set -e
 
 age_treshold="$(date -v-6m +%s)"
-base="origin/master"
+base="origin/$(git origin-head)"
 
 trap 'echo processing $branch >&2' INFO
 

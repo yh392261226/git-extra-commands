@@ -1,11 +1,11 @@
-# Copyright 2006-2019 Joseph Block <jpb@apesseekingknowledge.net>
+# Copyright 2006-2023 Joseph Block <jpb@apesseekingknowledge.net>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-
+#
 #     http://www.apache.org/licenses/LICENSE-2.0
-
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -13,8 +13,7 @@
 # limitations under the License.
 
 # Add our plugin's bin diretory to user's path
-PLUGIN_D=$(dirname "$0")
-export PATH="${PATH}:${PLUGIN_D}/bin"
+path+=("${0:h}/bin")
 
 alias git-grab='git-incoming-commits'
 alias gitroot='cd $(git rev-parse --show-toplevel) && echo "$_"'
@@ -26,8 +25,11 @@ alias git-cdroot='cd $(git rev-parse --show-toplevel) && echo "$_"'
 zstyle ':completion:*:*:git:*' user-commands \
   age:'A git-blame viewer, written using PyGTK written by Kristoffer Gronlund ' \
   big-file:'List disk size of files in ref' \
+  branch-diff:'Diff between the default branch and a branch' \
+  branch-name:'Prints the current branch name to stdout for use in automation'\
   change-author:'Rewrite commits, updating author/email' \
   changes:'List authors/emails with commit count' \
+  checkout-tag:'Check out a git tag'\
   churn:'List files in ref with change/commit count' \
   copy-branch-name:'Copy the current branch name to the clipboard (pbcopy)' \
   credit:'A very slightly quicker way to credit an author on the latest commit' \
